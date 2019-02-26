@@ -1,8 +1,8 @@
 const express = require('express');
-require('dotenv').config()
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
+const {Subscriber} = require('./models');
 
 const app = express();
 app.use(cors());
@@ -11,8 +11,9 @@ app.use(logger('dev'));
 
 const PORT = process.env.PORT || 3001;
 
-app.get('/', (req, res) => {
-    res.json( {msg: 'you have reached the home of the case study'} );
+app.get('/', async (req, res) => {
+    const allUser = await Subscriber.findAll();
+    res.json( allUser );
 })
 
 app.listen(PORT, () => {
