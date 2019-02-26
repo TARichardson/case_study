@@ -11,7 +11,7 @@ async function resetDb() {
     finally {
         process.exit();
     }
-};
+}
 
 // run command
 resetDb();

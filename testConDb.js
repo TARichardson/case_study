@@ -11,7 +11,7 @@ async function testConDb() {
     finally {
         process.exit();
     }
-};
+}
 
 // run command
 testConDb();
